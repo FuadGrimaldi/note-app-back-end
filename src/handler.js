@@ -18,8 +18,8 @@ const addNoteHandler = (request, h) => {
 
     if (isSuccess) {
         const response = h.response({
-            status: 'Success!',
-            message: 'Catatn berhasil ditambahkan',
+            status: 'success',
+            message: 'Catatan berhasil ditambahkan',
             data: {
                 noteId: id,
             },
@@ -29,7 +29,7 @@ const addNoteHandler = (request, h) => {
     }
 
     const response = h.response({
-        status: 'Fail!',
+        status: 'fail',
         message: 'Catatan gagal ditambahkan',
     });
     response.code(500);
@@ -37,7 +37,7 @@ const addNoteHandler = (request, h) => {
 };
 // Menampilkan note/catatan
 const getAllNotesHandler = () => ({
-    status: 'Success!',
+    status: 'success',
     data: {
         notes,
     },
@@ -52,15 +52,15 @@ const getNoteByIdHandler = (request, h) => {
 
     if (note !== undefined) {
         return {
-            status: 'Success!',
+            status: 'success',
             data: {
                 note,
             },
         };
     }
     const response = h.response({
-        status: 'Fail!',
-        message: 'Catatn tidak ditemukan',
+        status: 'fail',
+        message: 'Catatan tidak ditemukan',
     });
     response.code(404);
     return response;
@@ -82,15 +82,15 @@ const editNoteByIdHandler = (request, h) => {
             updateAt,
         };
         const response = h.response({
-            status: 'Success!',
+            status: 'success',
             message: 'Catatan berhasil diperbarui',
         });
         response.code(200);
         return response;
     }
     const response = h.response({
-        status: 'Fail!',
-        message: 'Gagal memperbarui catata. id tidak ditemukan',
+        status: 'fail',
+        message: 'Gagal memperbarui catatan. id tidak ditemukan',
     });
     response.code(404);
     return response;
@@ -103,14 +103,14 @@ const deleteNoteByIdHandler = (request, h) => {
     if (index !== -1) {
         notes.splice(index, 1);
         const response = h.response({
-            status: 'Success!',
+            status: 'success',
             message: 'Catatan berhasil dihapus',
         });
         response.code(200);
         return response;
     }
     const response = h.response({
-        status: 'Fail!',
+        status: 'fail',
         message: 'Catatan gagal dihapus. Id tidak ditemukan',
     });
     response.code(404);

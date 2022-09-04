@@ -11,6 +11,7 @@
         "ecmaVersion": "latest"
     },
     "rules": {
+        "linebreak-style":"off",
         "object-curly-newline":"off",
         "no-trailing-spaces":"off",
         "eol-last": 0,
